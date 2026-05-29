@@ -11,7 +11,7 @@ def callback(indata, frames, time, status):
     q.put(bytes(indata))
 
 # 日本語モデル読み込み
-model = Model(r"C:\voskmodel\vosk-model-ja-0.22")
+model = Model(r"C:\voskmodelsmall\vosk-model-small-ja-0.22")
 
 # 認識器
 rec = KaldiRecognizer(model, 48000)
