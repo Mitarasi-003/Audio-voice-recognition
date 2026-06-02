@@ -8,7 +8,7 @@ model = Model(r"C:\voskmodelsmall\vosk-model-small-ja-0.22")
 
 #語彙の認識向上のため、特定の単語を指定
 vocabulary = json.dumps(
-    ["前","後ろ","右","左"],
+    ["前","後ろ","右","左","止まれ"],
     ensure_ascii = False
 )
 
