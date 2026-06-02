@@ -6,8 +6,14 @@ import json
 # モデルの読み込み（パスは自分の環境に合わせて変更）
 model = Model(r"C:\voskmodelsmall\vosk-model-small-ja-0.22")
 
+#語彙の認識向上のため、特定の単語を指定
+vocabulary = json.dumps(
+    ["前","後ろ","右","左"],
+    ensure_ascii = False
+)
+
 # 認識器の初期化（第二引数はサンプリングレート：16000Hz固定）
-recognizer = KaldiRecognizer(model, 16000)
+recognizer = KaldiRecognizer(model, 16000, vocabulary)
 
 print("話しかけてください（Ctrl+Cで終了）")
 
