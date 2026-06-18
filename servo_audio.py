@@ -2,30 +2,48 @@ from vosk import Model, KaldiRecognizer
 import sounddevice as sd
 import queue
 import json
+import time
+import busio
+import board
+from adafruit_motor import servo
+from adafruit_pca9685 import PCA9685
+
+#busio.I2C を使ってピンを指定
+i2c = busio.I2C(board.SCL, board.SDA) 
+# Create a simple PCA9685 class instance.
+pca = PCA9685(i2c)
+
+#周波数指定
+pca.frequency = 60
+
+#pca9685の7番ピンに接続されたサーボモータを制御するためのServoオブジェクト
+servo7 = servo.Servo(pca.channels[7])
+
 
 # ===== モータ制御関数 =====
 
 def motor_forward():
-    servo.angle = 120
+    servo7.angle = 120
     print("前進")
     # モータ制御コード
 
 def motor_backward():
-    servo.angle = 60
+    servo7.angle = 60
     print("後退")
     # モータ制御コード
 
 def motor_right():
-    servo.angle = 90
+    servo7.angle = 90
     print("右")
     # モータ制御コード
 
 def motor_left():
-    servo.angle = 30
+    servo7.angle = 30
     print("左")
     # モータ制御コード
 
 def motor_stop():
+    servo7.angle = 0
     print("停止")
     # モータ制御コード
 
