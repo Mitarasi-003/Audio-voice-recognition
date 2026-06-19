@@ -14,10 +14,14 @@ i2c = busio.I2C(board.SCL, board.SDA)
 pca = PCA9685(i2c)
 
 #周波数指定
-pca.frequency = 60
+pca.frequency = 50
+
+#パルスの最大値と最小値を指定
+minp = 500
+maxp = 2500
 
 #pca9685の7番ピンに接続されたサーボモータを制御するためのServoオブジェクト
-servo7 = servo.Servo(pca.channels[7])
+servo7 = servo.Servo(pca.channels[7], min_pulse = minp, max_pulse = maxp)
 
 
 # ===== モータ制御関数 =====
@@ -25,26 +29,31 @@ servo7 = servo.Servo(pca.channels[7])
 def motor_forward():
     servo7.angle = 120
     print("前進")
+    time.sleep(2)
     # モータ制御コード
 
 def motor_backward():
     servo7.angle = 60
     print("後退")
+    time.sleep(2)
     # モータ制御コード
 
 def motor_right():
     servo7.angle = 90
     print("右")
+    time.sleep(2)
     # モータ制御コード
 
 def motor_left():
     servo7.angle = 30
     print("左")
+    time.sleep(2)
     # モータ制御コード
 
 def motor_stop():
     servo7.angle = 0
     print("停止")
+    time.sleep(2)
     # モータ制御コード
 
 # ===== Vosk設定 =====
