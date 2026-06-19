@@ -13,7 +13,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 # Create a simple PCA9685 class instance.
 pca = PCA9685(i2c)
 
-#周波数指定
+#モータの動作周波数
 pca.frequency = 50
 
 #パルスの最大値と最小値を指定
