@@ -1,10 +1,10 @@
-from vosk import Model, KaldiRecognizer
 import sounddevice as sd
 import queue
 import json
 import time
 import busio
 import board
+from vosk import Model, KaldiRecognizer
 from adafruit_motor import servo
 from adafruit_pca9685 import PCA9685
 
