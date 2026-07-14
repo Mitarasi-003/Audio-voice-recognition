@@ -38,6 +38,17 @@ with sd.RawInputStream(
                 if text:
                     print("認識結果:", text)
 
+                    if text == "起動":
+                        voice_enabled = True
+                        print("音声操作を開始します。")
+                        continue
+
+                    elif text == "終了":
+                        voice_enabled = False
+                        stop()
+                        print("音声操作を終了します。")
+                        continue
+
                     if text == "前":
                         forward()
 
