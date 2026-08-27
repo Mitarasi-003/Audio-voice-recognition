@@ -1,10 +1,14 @@
 import time
+import busio
+import board
 from adafruit_motor import servo
-from pca_controller import pca
+from adafruit_pca9685 import PCA9685
 
-#=============================================================================================
-#モータの設定
-#=============================================================================================
+# PCA9685設定
+i2c = busio.I2C(board.SCL, board.SDA)
+pca = PCA9685(i2c)
+pca.frequency = 50
+
 minp = 500
 maxp = 2500
 
@@ -16,9 +20,7 @@ servo8 = servo.Servo(
 
 servo8.angle = 90
 
-#=============================================================================================
-#モータの動作の定義
-#=============================================================================================
+
 def motor2_forward():
     servo8.angle = 120
     print("前進")
