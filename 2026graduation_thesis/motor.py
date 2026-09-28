@@ -54,3 +54,14 @@ def motor_default():
     servo7.angle = 90
     print("デフォルト位置")
     time.sleep(2)
+
+def motor_set_angle(angle):
+    """
+    根本側モータ(ch7)を指定角度へ移動
+    """
+
+    angle = max(0, min(180, angle))
+
+    servo7.angle = angle
+
+    print(f"根本側モータ: {angle:.2f} deg")
