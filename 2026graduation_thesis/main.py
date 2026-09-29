@@ -10,6 +10,7 @@ from actions import (
     left,
     stop,
     default,
+    move_to,
 )
 
 from response_time import ResponseTimer
@@ -24,6 +25,7 @@ COMMANDS = {
     "左": left,
     "止まれ": stop,
     "戻れ": default,
+    "取る": lambda: move_to(500, 300),
 }
 
 
